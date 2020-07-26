@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">QR Code Scanner</string>
+
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_to">Share</string>
+    <string name="bannerAds">ca-app-pub-7092432551546312/3017178527</string>
+    <string name="admob_interstitalAds">ca-app-pub-7092432551546312/1209272834</string>
+    <string name="admob_rewardedVideoAds">ca-app-pub-7092432551546312/2634035142</string>
+
+    <string name="privacy_policy_link">https://encoderbytes.github.io/QRScanner/</string>
+
+</resources>

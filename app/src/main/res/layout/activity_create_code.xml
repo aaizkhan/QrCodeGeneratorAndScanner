@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".CreateCode">
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bannerAds">
+    </com.google.android.gms.ads.AdView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/topBar"
+        android:elevation="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        app:cardCornerRadius="0dp"
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="@drawable/bg_gradient"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:onClick="btn_back"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:src="@drawable/icon_back"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:text="Create your code"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/candal"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_below="@id/topBar"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:onClick="card_message"
+                android:layout_weight="1"
+                android:elevation="10dp"
+                android:layout_margin="8dp"
+                 app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp">
+                <ImageView
+                    android:paddingTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_message"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="Message"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:onClick="card_email"
+                android:layout_weight="1"
+                android:elevation="10dp"
+                android:layout_margin="8dp"
+
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp">
+                <ImageView
+                    android:paddingTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_email"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Email"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/abeezee"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:onClick="card_text"
+                android:layout_weight="1"
+                android:elevation="10dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp">
+                <ImageView
+                    android:paddingTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_text"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="    Text   "
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/abeezee"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:onClick="card_url"
+                android:layout_weight="1"
+                android:elevation="10dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp">
+                <ImageView
+                    android:paddingTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_url"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Url"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/abeezee"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
