@@ -2,6 +2,7 @@ package com.encoderbytes.qrcodeScannerAndGenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -11,6 +12,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,6 +26,10 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MyResult extends AppCompatActivity {
 
@@ -111,23 +118,41 @@ public class MyResult extends AppCompatActivity {
     public void btn_share(View view) {
 
         Bitmap bm = ((android.graphics.drawable.BitmapDrawable) imageView.getDrawable()).getBitmap();
-        try {
-            java.io.File file = new java.io.File(getExternalCacheDir() + "/image.jpg");
-            java.io.OutputStream out = new java.io.FileOutputStream(file);
-            bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
-            out.close();
-        } catch (Exception e) {
+        saveImage(bm);
 
-            }
-        Intent iten = new Intent(android.content.Intent.ACTION_SEND);
-        iten.setType("*/*");
-        iten.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new java.io.File(getExternalCacheDir() + "/image.jpg")));
-        startActivity(Intent.createChooser(iten, "Share QR Code"));
 
     }
 
     public void btn_back(View view) {
         finish();
+    }
+
+    private Uri saveImage(Bitmap image) {
+        //TODO - Should be processed in another thread
+        File imagesFolder = new File(getCacheDir(), "images");
+        Uri uri = null;
+        try {
+            imagesFolder.mkdirs();
+            File file = new File(imagesFolder, "shared_image.png");
+
+            FileOutputStream stream = new FileOutputStream(file);
+            image.compress(Bitmap.CompressFormat.PNG, 90, stream);
+            stream.flush();
+            stream.close();
+            uri = FileProvider.getUriForFile(this, "com.mydomain.fileprovider", file);
+
+            shareImageUri(uri);
+        } catch (IOException e) {
+           // Log.d(TAG, "IOException while trying to write file for sharing: " + e.getMessage());
+        }
+        return uri;
+    }
+
+    private void shareImageUri(Uri uri){
+        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("image/png");
+        startActivity(intent);
     }
 }

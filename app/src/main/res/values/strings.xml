@@ -3,9 +3,15 @@
 
      <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send_to">Share</string>
-    <string name="bannerAds">ca-app-pub-7092432551546312/3017178527</string>
-    <string name="admob_interstitalAds">ca-app-pub-7092432551546312/1209272834</string>
-    <string name="admob_rewardedVideoAds">ca-app-pub-7092432551546312/2634035142</string>
+
+<!--    <string name="bannerAds">ca-app-pub-7092432551546312/3017178527</string>-->
+<!--    <string name="admob_interstitalAds">ca-app-pub-7092432551546312/1209272834</string>-->
+<!--    <string name="admob_rewardedVideoAds">ca-app-pub-7092432551546312/2634035142</string>-->
+
+
+    <string name="bannerAds">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstitalAds">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_rewardedVideoAds">ca-app-pub-3940256099942544/5224354917</string>
 
     <string name="privacy_policy_link">https://encoderbytes.github.io/QRScanner/</string>
 
